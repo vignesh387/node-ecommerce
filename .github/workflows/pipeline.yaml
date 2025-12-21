@@ -17,8 +17,8 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: { { env.NODE_VERSION } }
-          cache: { { env.NPM_CACHE } }
+          node-version: ${ { env.NODE_VERSION } }
+          cache: ${ { env.NPM_CACHE } }
       - name: Install dependencies
         run: npm ci
       - name: run lint
@@ -32,8 +32,8 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: { { env.NODE_VERSION } }
-          cache: { { env.NPM_CACHE } }
+          node-version: ${ { env.NODE_VERSION } }
+          cache: ${ { env.NPM_CACHE } }
       - name: Install dependencies
         run: npm ci
       - name: Run test
