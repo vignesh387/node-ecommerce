@@ -5,20 +5,32 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
       - name: setup node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: run lint
+        run: npm run lint:checkout
 
-      - name: install dependency
-        run: npm install
-
-      - name: Run unit test
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run test
         run: npm run test

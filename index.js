@@ -2,7 +2,6 @@ import express from "express";
 import { OrderModel } from "./models/OrderModel.js";
 import { connectDB } from "./config/db.js";
 import { agenda } from "./cron-job.js";
-import { runBackup } from "./backup-db.js";
 import cors from "cors";
 
 const app = express();
@@ -31,7 +30,7 @@ app.get("/get-orders", async (req, res) => {
       message: "Request successful",
       data: response,
     });
-  } catch (error) {
+  } catch {
     return res.status(500).send({
       success: false,
       message: "Internal server error",

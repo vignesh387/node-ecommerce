@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint:check": "eslint .",
+    "lint:fix":"eslint . --fix",
     "test": "node test.js"
   },
   "keywords": [],
@@ -17,5 +19,10 @@
     "express": "^5.1.0",
     "mongoose": "^9.0.0",
     "pm2": "^6.0.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0"
   }
 }

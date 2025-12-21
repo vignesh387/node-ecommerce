@@ -38,5 +38,7 @@ export async function runBackup() {
   try {
     scheduleTask("GET_DB_BACKUP", 1, "*/1 * * * *", getDBBackup);
     // await getDBBackup();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }

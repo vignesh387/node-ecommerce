@@ -1,12 +1,11 @@
 import Agenda from "agenda";
-import { OrderModel } from "./models/OrderModel.js";
 
 const uri =
   "mongodb+srv://vignesh:M0ng0DBAtlaS@cluster0.oiwo173.mongodb.net/ecommerce";
 
 export const agenda = new Agenda({ db: { address: uri } });
 
-agenda.define("GET_ORDER_COUNT", { concurrency: 2 }, async (job) => {
+agenda.define("GET_ORDER_COUNT", { concurrency: 2 }, async () => {
   try {
     console.log("job started");
     await new Promise((res) => setTimeout(res, 5000));
